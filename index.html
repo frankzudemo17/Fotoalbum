@@ -2175,9 +2175,10 @@ function handleLbBgClick(e) {
 function lbNav(d) { resetZoom(); openLB(Math.max(0,Math.min(photos.length-1,lbIdx+d))); }
 document.addEventListener('keydown',e=>{
   if ($('lb').classList.contains('hidden')) return;
+  if(e.key==='Escape') closeLB();
+  if ($('comment-input') === document.activeElement) return;
   if(e.key==='ArrowLeft') lbNav(-1);
   else if(e.key==='ArrowRight') lbNav(1);
-  else if(e.key==='Escape') closeLB();
 });
 
 // ── DELETE ───────────────────────────────────────────────
